@@ -1,0 +1,26 @@
+GET("/api/versions")
+returns json
+{
+	"lastBatchNumber" : Int // each day there will be a new 'Batch' , which contains 3 stories .
+	"appVersion" : Int // for force update
+
+}
+
+GET("/api/batch?number=%d")
+returns json array
+this get method returns stories in batch n , where n is in number query .
+
+	[ 
+	"
+	"url" : "Url of picture"
+	"bluredUrl" : "URL of blured picture , only for first index"
+	"titleOfStory" : ""
+	"smallDetailOfStory" : ""
+	"fullDetailOfStory" : ""
+	"time" : ""
+	"videoUrl" : ""
+	"
+	,
+	// two more objects like above in this array
+
+	 ]
