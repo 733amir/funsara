@@ -42,7 +42,7 @@ $bavotasan_theme_options = bavotasan_theme_options();
 			    <div class="entry-content description clearfix">
 				    <?php
 					if ( is_singular() )
-					    the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'destin-basic') );
+					    the_content( __( 'ادامه مطلب <span class="meta-nav">&rarr;</span>', 'destin-basic') );
 					else
 						the_excerpt();
 					?>

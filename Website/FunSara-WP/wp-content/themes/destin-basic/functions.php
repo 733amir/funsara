@@ -117,7 +117,7 @@ function bavotasan_front_page_render() {
 					<h2><?php the_title(); ?></h2>
 					<div>
 						<p><?php echo wp_trim_words( strip_shortcodes( get_the_excerpt() ) , 10 ); ?></p>
-						<p class="more-link-p"><?php _e( 'Continue reading <span class="meta-nav">&rarr;</span>', 'destin-basic' ); ?></p>
+						<p class="more-link-p"><?php _e( 'ادامه مطلب <span class="meta-nav">&rarr;</span>', 'destin-basic' ); ?></p>
 					</div>
 					<a href="<?php the_permalink(); ?>"><?php _e( 'View more', 'destin-basic' ); ?></a>
 				</figcaption>
@@ -334,7 +334,7 @@ if ( ! function_exists( 'bavotasan_excerpt' ) ) :
 	 * @since 1.0.0
  */
 function bavotasan_excerpt( $more ) {
-	return '&hellip; <p class="more-link-p"><a class="more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'destin-basic' ) . '</a></p>';
+	return '&hellip; <p class="more-link-p"><a class="more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'ادامه مطلب <span class="meta-nav">&rarr;</span>', 'destin-basic' ) . '</a></p>';
 }
 endif; // bavotasan_excerpt
 

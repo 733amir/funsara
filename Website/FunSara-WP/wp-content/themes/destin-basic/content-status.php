@@ -16,7 +16,7 @@
 				<?php printf( __( 'Posted on %1$s at %2$s', 'destin-basic' ), get_the_date(), get_the_time() );	?>
 			</time>
 
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'destin-basic') ); ?>
+			<?php the_content( __( 'ادامه مطلب <span class="meta-nav">&rarr;</span>', 'destin-basic') ); ?>
 	    </div><!-- .entry-content -->
 
 	    <?php get_template_part( 'content', 'footer' ); ?>

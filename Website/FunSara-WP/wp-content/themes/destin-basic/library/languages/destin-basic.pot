@@ -55,7 +55,7 @@ msgstr ""
 #: content-image.php:16 content-link.php:12 content-quote.php:12
 #: content-status.php:19 content-video.php:12 content.php:45 functions.php:120
 #: functions.php:337 page.php:33
-msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgid "ادامه مطلب"
 msgstr ""
 
 #: content-footer.php:11 image.php:50
