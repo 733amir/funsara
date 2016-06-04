@@ -4192,7 +4192,8 @@ input, textarea {
   line-height: 1.1; }
   .basic #site-title {
     font-size: 32px;
-    font-family: "Raleway", sans-serif; }
+    font-family: "Raleway", sans-serif;
+    margin-left: 10px; }
   #site-title a {
     text-decoration: none; }
 
