@@ -49,6 +49,8 @@
 
 						wp_nav_menu( array( 'theme_location' => 'primary', 'container' => '', 'menu_class' => 'nav navbar-nav' . $menu_class, 'fallback_cb' => 'bavotasan_default_menu' ) );
 						?>
+
+						<?php get_search_form(); ?>
 					</div>
 				</div>
 			</nav><!-- #site-navigation -->
