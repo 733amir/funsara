@@ -16,6 +16,11 @@ Destin Basic WordPress Theme, Copyright 2016 c.bavota
 Destin Basic is distributed under the terms of the GNU GPL
 */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+@font-face {
+  font-family: IRANSans;
+  src: url('library/fonts/irsans.ttf') format('truetype');
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -286,7 +291,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: IRANSans, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
@@ -670,7 +675,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
+  font-family: IRANSans, Menlo, Monaco, Consolas, "Courier New", monospace; }
 
 code {
   padding: 2px 4px;
@@ -3615,7 +3620,7 @@ button.close {
   z-index: 1070;
   display: block;
   visibility: visible;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: IRANSans, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
   line-height: 1.4;
@@ -3811,7 +3816,7 @@ button.close {
     width: 20px;
     height: 20px;
     margin-top: -10px;
-    font-family: serif; }
+    font-family: IRANSans, serif; }
   .carousel-control .icon-prev:before {
     content: '\2039'; }
   .carousel-control .icon-next:before {
@@ -4101,7 +4106,7 @@ body {
   body.basic {
     font-size: 16px;
     color: #aaa;
-    font-family: "Raleway", sans-serif;
+    font-family: IRANSans, "Raleway", sans-serif;
     font-weight: 300; }
 
 a {
@@ -4114,7 +4119,7 @@ a {
 
 .basic h1, .basic h2, .basic h3, .basic h4, .basic h5, .basic h6 {
   color: #aaa;
-  font-family: "Raleway", sans-serif;
+  font-family: IRANSans, "Raleway", sans-serif;
   font-weight: normal; }
   .basic h1 a, .basic h2 a, .basic h3 a, .basic h4 a, .basic h5 a, .basic h6 a {
     color: #ccc; }
@@ -4192,7 +4197,7 @@ input, textarea {
   line-height: 1.1; }
   .basic #site-title {
     font-size: 32px;
-    font-family: "Raleway", sans-serif;
+    font-family: IRANSans, "Raleway", sans-serif;
     margin-left: 10px; }
   #site-title a {
     text-decoration: none; }
@@ -4271,7 +4276,7 @@ input, textarea {
       float: left;
       text-align: center;
       margin: 0 0 0 10px;
-      font-family: FontAwesome;
+      font-family: IRANSans, FontAwesome;
       font-size: 16px; }
     #menu-social a:hover:before {
       color: #666; }
