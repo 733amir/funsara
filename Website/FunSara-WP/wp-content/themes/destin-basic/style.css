@@ -27,7 +27,8 @@ html {
   -webkit-text-size-adjust: 100%; }
 
 body {
-  margin: 0; }
+  margin: 0;
+  width: 99.4%; }
 
 article,
 aside,
@@ -4129,7 +4130,7 @@ a {
   .basic h1 a, .basic h2 a, .basic h3 a, .basic h4 a, .basic h5 a, .basic h6 a {
     color: #ccc; }
 .basic a {
-  color: #ccc;
+  color: white;
   text-decoration: underline; }
   .basic a.btn, .basic a.comment-reply-link,
   .basic .form-submit a#submit,
@@ -4867,7 +4868,9 @@ iframe {
 
 .widget-title {
   font-size: 21px;
-  margin: 0 0 10px; }
+  margin: 0 0 10px;
+  border-bottom: solid 1px;
+  padding-bottom: 10px; }
 
 .widget_rss ul {
   list-style: none;
