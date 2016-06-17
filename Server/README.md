@@ -1,3 +1,7 @@
-# Server
 
-Server receive **requests** in form of _URLs_ and **response** to them with _JSON_.
+This part of project is about a tool that manage requests and database.
+# server.py
+
+# database.py
+
+# batch.py
