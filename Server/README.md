@@ -1,7 +1,9 @@
 
-This part of project is about a tool that manage requests and database.
+This part of project is about a tool that manages requests and database.
 
-# Files structure
+**Attention**: All UPPERCASE strings in this description will be changed with the proper value that they are describing.
+
+# 1. Files structure
 
 ```
 root-of-project/
@@ -9,19 +11,43 @@ root-of-project/
 |-- database.py
 |-- server.py
 |-- videos /
-    |-- VIDEO_ID /
-        |-- IMAGE
-        |-- BLURRED_IMAGE
-        |-- VIDEO
+    |-- VIDEO-ID /
+        |-- THUMBNAIL-IMAGE-ABOUT-THE-VIDEO
+        |-- BLURRED-THUMBNAIL-IMAGE-ABOUT-THE-VIDEO
+        |-- VIDEO-FILE
 ```
 
-**VIDEO_ID** is the id of video that its files is saving.  
-**IMAGE** is the thumbnail image of the video.  
-**BLURRED_IMAGE** is the blurred thumbnail image of the video.  
-**VIDEO** is the video file. 
+## 1.1. server.py
 
-# server.py
+### 1.1.1 Requests
 
-# database.py
+#### 1.1.1.1. GET `/api/versions`
 
-# batch.py
+Returns a JSON object bellow, where **APP-VERSION** is the lowest version of android application that user should have.
+
+```
+{
+    "lastBatchNumber" : LAST-BATCH-NUMBER
+    "appVersion" : APP-VERSION
+}
+```
+
+#### 1.1.1.2. GET `/api/batch?number=BATCH-NUMBER`
+
+Returns a JSON array that contains objects like bellow. These objects contain information about videos in the batch.  
+
+```
+{
+    "url": URL-OF-THUMBNAIL-PICTURE-ABOUT-THE-VIDEO,
+    "blurredUrl": URL-OF-BLURED-THUMBNAIL-PICTURE-ABOUT-THE-VIDEO,
+    "titleOfStory" : TITLE-OF-THE-VIDEO,
+    "smallDetailOfStory": SMALL-DESCRIPTION-ABOUT-THE-VIDEO,
+    "fullDetailOfStory": FULL-DESCRIPTION-ABOUT-THE-VIDEO,
+    "time": LENGTH-OF-THE-VIDEO,
+    "videoUrl": URL-OF-THE-VIDEO
+}
+```
+
+## 1.2. database.py
+
+## 1.3. batch.py
