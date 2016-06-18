@@ -50,4 +50,17 @@ Returns a JSON array that contains objects like bellow. These objects contain in
 
 ## 1.2. database.py
 
+### 1.2.1. Tables
+
+**batches**:
+
+|id|number|video_id|
+|--|------|--------|
+
+**videos**:
+
+|id|img_url|blurred_img_url|title|short_detail|long_detail|time|video_url|
+|--|-------|---------------|-----|-----------------|----------------|----|---------|
+
+
 ## 1.3. batch.py
