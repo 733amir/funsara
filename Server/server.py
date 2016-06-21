@@ -24,21 +24,19 @@ class Server:
 
         # Called with `/api/batch?number=%d`
         elif path == 'batch' and number is not None:
-            # TODO:
-            # Fetch last batch videos.
-            # Build JSON array contains JSON object like:
-            #   {
-            #     "url": URL-OF-PICTURE,
-            #     "bluredUrl": URL-OF-BLURED-PICTURE,
-            #     "titleOfStory" : TITLE,
-            #     "smallDetailOfStory": SMALL-DESCRIPTION,
-            #     "fullDetailOfStory": FULL-DESCRIPTION,
-            #     "time": LENGTH-OF-VIDEO,
-            #     "videoUrl": URL-OF-VIDEO
-            #   }
-            # for each video in the batch.
+            # This is a template that will be filled up with data comes from database.
+            json_object_template = '{}"url": {}, "blurredUrl": {}, "titleOfStory" : {}, "smallDetailOfStory": {}, ' \
+                   '"fullDetailOfStory": {}, "time": {}, "videoUrl": {}{}'
 
-            return '/api/batch/?number={}'.format(number)
+            # Find id of videos in requested batch number.
+            ids = [i[0] for i in self.db.run(('SELECT video_id FROM batches WHERE number={}'.format(number),))[0]]
+
+            # Get details of videos with id stored in `video_ids`.
+            details = [i[0] for i in self.db.run(['SELECT * from videos where id={}'.format(i) for i in ids])]
+
+            # Build JSON array string with proper data.
+            return '[' + ', <br>'.join([json_object_template.format('{', *i[1:], '}') for i in details]) + ']'
+
 
         # URLs that haven't been handle or requests with bad parameters.
         else:
