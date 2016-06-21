@@ -15,15 +15,15 @@ class Server:
         return self.db.run(('SELECT MAX(number) FROM batches',))[0][0][0]
 
     @cherrypy.expose
-    def api(self, path, number=None):
+    def api(self, path=None, number=None):
 
         # Called with `/api/version`
-        if path == 'version':
+        if path is not None and path == 'version':
             return '''{}"lastBatchNumber": {}, "appVersion": {}{}'''\
                    .format('{', self.get_last_batch_number(), APP_VERSION, '}')
 
         # Called with `/api/batch?number=%d`
-        elif path == 'batch' and number is not None:
+        elif number is not None and path == 'batch':
             # This is a template that will be filled up with data comes from database.
             json_object_template = '{}"url": {}, "blurredUrl": {}, "titleOfStory" : {}, "smallDetailOfStory": {}, ' \
                    '"fullDetailOfStory": {}, "time": {}, "videoUrl": {}{}'
@@ -40,7 +40,11 @@ class Server:
 
         # URLs that haven't been handle or requests with bad parameters.
         else:
-            return 'Bad Request!'
+            return self.default()
+
+    @cherrypy.expose
+    def default(self, attr=None):
+        return "Page not Found!"
 
 
 if __name__ == '__main__':
