@@ -16,12 +16,11 @@ class Database:
         img_url VARCHAR(255) NOT NULL,
         blurred_img_url VARCHAR(255) NOT NULL,
         title VARCHAR(255) NOT NULL,
-        short_description TEXT NOT NULL,
-        full_description LONGTEXT NOT NULL,
+        short_detail TEXT NOT NULL,
+        long_detail LONGTEXT NOT NULL,
         time INT NOT NULL,
         video_url VARCHAR(255) NOT NULL,
-        PRIMARY KEY (id),
-        CHECK (time>0)
+        PRIMARY KEY (id)
         )''',
             '''CREATE TABLE batches (
         id INT AUTO_INCREMENT,
@@ -49,9 +48,19 @@ class Database:
         self.connection = db.connect(self.DB_SERVER, self.DB_USER, self.DB_PASS)
         # todo check the connection
 
+
     def disconnect(self):
         """close connection from mysql"""
         self.connection.close()
+
+    def connected(self):
+        """check existence of connection to mysql"""
+        try:
+            db.connect(self.DB_SERVER, self.DB_USER, self.DB_PASS).close()  # Just try to connect to mysql.
+        except db.OperationalError:  # This exception means the username or password or both was wrong.
+            return False
+        else:  # This means everything is okay. connected to mysql, username and password is correct.
+            return True
 
     def run(self, queries):
         """run queries and return result"""
@@ -72,10 +81,9 @@ class Database:
         except db.InternalError:  # This exception means the database doesn't exist.
             return False
         except db.OperationalError:  # This exception means the username or password or both was wrong.
-            return None
+            return False
         # todo Consider checking tables and columns of database.
         else:  # This means everything is okay. Database exist, username and password was correct.
-            print('created')
             return True
 
     def create(self):
@@ -92,4 +100,5 @@ class Database:
 
 if __name__ == '__main__':
     database = Database()
-    print(database.run(['select @@version']))  # return mysql version
+    # print(database.run(['select @@version']))  # return mysql version
+
