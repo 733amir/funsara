@@ -66,6 +66,7 @@ class Database:
         """run queries and return result"""
         res = []
         cursor = self.connection.cursor()  # Getting a cursor object to execute the queries.
+        cursor.execute('USE {}'.format(self.DB_NAME))  # make cursor object use funsara database as default database
         # Execute each query with order that saved in `queries`.
         for query in queries:
             cursor.execute(query)
