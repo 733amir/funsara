@@ -6,6 +6,7 @@ class Database:
         """Variables used to connect to correct database with correct username and password."""
         self.DB_SERVER = self.DB_NAME = self.DB_USER = self.DB_PASS = self.connection = None
         self.config()
+        self.locked = False
 
         # Queries for creating tables of database
         self.create_queries = (
@@ -64,6 +65,8 @@ class Database:
 
     def run(self, queries):
         """run queries and return result"""
+        while(self.locked): pass
+        self.locked = True
         res = []
         cursor = self.connection.cursor()  # Getting a cursor object to execute the queries.
         cursor.execute('USE {}'.format(self.DB_NAME))  # make cursor object use funsara database as default database
@@ -72,6 +75,7 @@ class Database:
             cursor.execute(query)
             res.append(cursor.fetchall())
         cursor.close()
+        self.locked = False
         # todo map query to its result
         return res
 
