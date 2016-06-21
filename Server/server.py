@@ -1,5 +1,6 @@
 import cherrypy
 from database import Database
+from os.path import split, join
 
 # Lowest version of android application that user should have.
 APP_VERSION = 1
@@ -43,9 +44,17 @@ class Server:
             return self.default()
 
     @cherrypy.expose
-    def default(self, attr=None):
+    def default(self, *attr, **key):
         return "Page not Found!"
 
 
 if __name__ == '__main__':
-    cherrypy.quickstart(Server(), '/', 'server.conf')
+    cherrypy.server.socket_host = 'localhost'
+    cherrypy.server.socket_port = 54321
+    config = {
+        '/videos': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': join(split(__file__)[0], 'videos')
+        }
+    }
+    cherrypy.quickstart(Server(), config=config)
