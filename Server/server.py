@@ -8,16 +8,19 @@ APP_VERSION = 1
 class Server:
     def __init__(self):
         self.db = Database()
+        self.db.connect()
+
+    def get_last_batch_number(self):
+        """Run a query on funsara database to get most recent batch number from server."""
+        return self.db.run(('SELECT MAX(number) FROM batches',))[0][0][0]
 
     @cherrypy.expose
     def api(self, path, number=None):
 
         # Called with `/api/version`
         if path == 'version':
-            # Run a query to get most recent batch number
-            last_batch_number = self.db.run(('use funsara', 'SELECT MAX(number) FROM batches',))[1][0][0]
-
-            return '''{}"lastBatchNumber": {}, "appVersion": {}{}'''.format('{', last_batch_number, APP_VERSION, '}')
+            return '''{}"lastBatchNumber": {}, "appVersion": {}{}'''\
+                   .format('{', self.get_last_batch_number(), APP_VERSION, '}')
 
         # Called with `/api/batch?number=%d`
         elif path == 'batch' and number is not None:
